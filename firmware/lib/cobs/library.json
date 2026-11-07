@@ -1,0 +1,7 @@
+{
+  "name": "cobs",
+  "version": "1.0.0",
+  "description": "COBS encoder/decoder used by the melonDS-walker dongle protocol",
+  "frameworks": "*",
+  "platforms": "*"
+}

@@ -1,0 +1,6 @@
+{
+  "name": "melonds-walker-xiao-irda-hat",
+  "version": "0.1.0",
+  "private": true,
+  "description": "XIAO ESP32S3 hat carrying a Vishay TFBS4711 IrDA SIR transceiver (tscircuit source)"
+}
