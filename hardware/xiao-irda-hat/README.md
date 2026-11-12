@@ -2,7 +2,7 @@
 
 A 17.8 x 24.4 mm, 2-layer carrier for a Seeed Studio XIAO ESP32S3 that holds a Vishay TFBS4711 IrDA SIR transceiver. It is the recommended way to build the melonDS-walker dongle. The XIAO sits on top on two 1x7 headers. The transceiver looks out of the end opposite the XIAO's USB-C connector, so with the dongle plugged into a handheld you aim the Pokéwalker at the far end.
 
-Status: designed, DRC-clean and netlist-checked. **Not yet built or tested.** Read the [pre-order checklist](#pre-order-checklist-human-checks) before you pay for anything.
+Status: built and tested. Two assembled boards ordered from JLCPCB on 2026-11-07 worked on first power-on with no rework (verified 2026-11-12). The firmware with default settings received the walker's beacon and transmitted correctly, and the board has been used with the melonDS-android fork. Link range and long sessions are not yet tested. Read the [pre-order checklist](#pre-order-checklist-human-checks) before you pay for a reorder.
 
 | Top (XIAO side) | Bottom (outside face) | 3D, factory-assembled |
 |---|---|---|
@@ -225,7 +225,7 @@ Do not order until the [checklist](#pre-order-checklist-human-checks) is done.
 
 ## Open questions
 
-- **Rotation and origin of U1 at JLCPCB:** unverified until the placement preview. This is the main ordering risk.
+- **Rotation and origin of U1 at JLCPCB:** resolved. JLCPCB placed U1 correctly at 180° and the board works.
 - **Stock:** 40 x TR1 and 47 x TR3 at JLCPCB on 2026-11-06. A reorder from this repo may find both gone; Digi-Key/Mouser plus hand or hot-air assembly is the fallback.
 - **Panel tabs:** Economic PCBA may ship panelized with mouse bites. A tab on the IR edge would leave a nub of up to about 0.5 mm in front of the lenses (file it off). The order remark asks JLCPCB to avoid it.
 - **Signals under the package:** TXD, RXD and SD run under the TFBS4711 body, mostly under the emitter half; the detector half only has the start of the SD stub. Vishay's layout note asks only for short, low-inductance supply wiring, and none of these is a supply. I expect no effect but it is untested.

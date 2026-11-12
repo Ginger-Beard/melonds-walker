@@ -10,7 +10,9 @@ Commands 0x2A and 0x2C make the walker wipe itself (pairing, walk, inventory, an
 
 ## Status
 
-Firmware is in progress and untested on hardware. The host tool and docs are written against the protocol spec and have not been run against a real dongle or walker.
+Tested on hardware as of 2026-11-12. The XIAO IrDA hat v0.1 worked on first power-on with no rework, and the firmware with default settings talks to a real Pokéwalker. `tools/walkerctl.py handshake` succeeds, and `sniff`, `identify` and `ping` work. On an AYN Thor, the melonDS-android fork (branch `pokewalker-ir`, debug build) used the dongle over USB: HeartGold/SoulSilver erased the walker's old pairing, registered it, and sent a Pokémon on a stroll.
+
+Not yet tested: returning a Pokémon from a stroll, link range, long sessions, the melonDS release (R8) build, the DevKitC-1 build, and the TFDU4101 alternate.
 
 ## Repo layout
 

@@ -56,7 +56,7 @@ Add these to `build_flags` in `platformio.ini`, or pass them for a single build:
 
 ## If nothing is received: polarity
 
-The polarity defaults are **educated guesses** that still need a hardware test. The ESP32's IrDA encoder is assumed to follow the usual SIR ENDEC convention (STM32 does the same, and Flipwalker drives a TFBS4711 from an STM32 with no inverters): TX idles low with short high pulses (matching the TFBS4711's active-high TXD), and RX idles high with low pulses (matching its active-low RXD). Espressif does not document the idle levels.
+The polarity defaults were confirmed correct with a TFBS4711 on the XIAO hat (2026-11-12): all four flags at their default of 0 received the walker's beacon and transmitted correctly. They were educated guesses, and other boards or transceivers are untested, so the steps below still apply there. The ESP32's IrDA encoder is assumed to follow the usual SIR ENDEC convention (STM32 does the same, and Flipwalker drives a TFBS4711 from an STM32 with no inverters): TX idles low with short high pulses (matching the TFBS4711's active-high TXD), and RX idles high with low pulses (matching its active-low RXD). Espressif does not document the idle levels.
 
 Try these in order, one at a time, with a walker beaconing (0xFC every few hundred ms, `0x56` on the wire):
 
@@ -88,7 +88,7 @@ USB CDC <-> COBS decode/dispatch -- tx msgbuf (8 pkts) --> pacing -> UART1 IrDA 
 
 ## Hardware-test checklist (unverified assumptions)
 
-- RX/TX polarity defaults (see above).
-- That toggling `conf0.irda_tx_en` around each transmission is right for the S3. The IDF driver never sets this bit.
-- Echo timing: the 50 µs guard plus ~10–20 µs of TX-done wake-up latency must stay under the walker's ~150 µs reply delay.
-- Behaviour of the reset-to-bootloader path on your particular board.
+- RX/TX polarity defaults (see above): confirmed with a TFBS4711 on the XIAO hat.
+- Toggling `conf0.irda_tx_en` around each transmission: evidently works, since the full handshake and a game registration succeeded.
+- Echo timing (the 50 µs guard plus ~10–20 µs of TX-done wake-up latency must stay under the walker's ~150 µs reply delay): evidently works, same evidence.
+- Behaviour of the reset-to-bootloader path on your particular board: not cleanly exercised. pio's 1200-baud touch plus wait-for-port failed once when the board was already in the ROM bootloader, and running esptool write-flash directly worked.

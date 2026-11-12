@@ -305,9 +305,13 @@ class Dongle:
             remaining = deadline - time.monotonic()
             if remaining <= 0:
                 return None
+            # read(1) returns as soon as one byte arrives; read(256) would block
+            # for the whole timeout unless 256 bytes came in, adding ~100 ms to
+            # every reply and blowing the walker's ~98 ms session timeout.
             self.ser.timeout = min(remaining, 0.1)
-            chunk = self.ser.read(256)
+            chunk = self.ser.read(1)
             if chunk:
+                chunk += self.ser.read(self.ser.in_waiting)
                 self.buf += chunk
 
     def request(self, ftype, payload, want, timeout=1.0):

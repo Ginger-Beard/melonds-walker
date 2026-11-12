@@ -36,17 +36,18 @@ Pokéwalker  ))) IR )))  dongle  ── USB-C ──  Android handheld
 ## Status
 
 - **Done:** dongle firmware (builds for ESP32-S3 DevKitC-1 and Seeed XIAO ESP32S3), the USB protocol, and a PC bench tool. The bench tool does a handshake with a real walker and reads its trainer name and step count. It is hard-limited to safe, read-only commands, because some walker commands can wipe the device.
-- **Waiting on:** the IR transceiver part. Nothing has been tested on hardware yet.
+- **Tested on hardware (2026-11-12):** the XIAO hat v0.1 worked first power-on with no rework. The firmware with default settings receives the walker's 0xFC beacon and transmits correctly. `walkerctl.py handshake` succeeded against a real walker (connect, identity read with checksum OK, disconnect). On an AYN Thor, the melonDS-android fork (branch `pokewalker-ir`, debug build) used the dongle over USB, and HeartGold/SoulSilver erased the old pairing, registered the walker and sent a Pokémon on a stroll.
+- **Not yet tested:** returning a Pokémon from a stroll, link range, long sessions, the melonDS release (R8) build, the DevKitC-1 build, and the TFDU4101 alternate.
 - **Next:**
-  1. Bench test against a real walker from a PC.
-  2. Link to WatermelonDS over Wi-Fi.
-  3. Add a USB-serial mode to melonDS Android and offer it upstream.
-  4. A small custom PCB "hat" for the XIAO so the dongle is solder-headers-only.
+  1. Bench test against a real walker from a PC. Done.
+  2. Link to WatermelonDS over Wi-Fi. Skipped, not needed.
+  3. Add a USB-serial mode to melonDS Android and offer it upstream. Working in the fork, not yet offered upstream.
+  4. A small custom PCB "hat" for the XIAO so the dongle is solder-headers-only. Done.
   5. A 3D-printed case.
 
 ## Known risks
 
-- Signal polarity on the IR lines may need flipping. It's a firmware build flag, not a redesign.
+- Signal polarity on the IR lines may need flipping on other boards. It's a firmware build flag, not a redesign. On the XIAO hat the defaults turned out right.
 - The TFBS4711 is tiny surface-mount, hence the factory-assembled hat plan.
 - Savestates across a walk start or return will confuse a real walker. No emulator can fix that.
 
