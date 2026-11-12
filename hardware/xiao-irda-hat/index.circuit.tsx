@@ -26,9 +26,10 @@ const BOARD = { xMin: -8.9, xMax: 8.9, yMin: -10.5, yMax: 13.9, r: 1.0 }
 
 // TFBS4711: pad-row centre. Datasheet: lens tip is 2.765 mm in front of the
 // pad centre (3.0 mm body depth - 0.235 mm). Lens tip sits 0.1 mm inside the
-// board edge; the package back face (pad centre + 0.235 = y 11.27) is 0.68 mm
-// beyond the XIAO's far edge (y +10.594 from the header centre in Seeed's board
-// file), so the whole body is outside the XIAO shadow.
+// board edge; the package back face (pad centre - 0.235 = y 10.80) is about
+// 0.2 mm beyond the XIAO's far edge (y +10.594 from the header centre in Seeed's
+// board file), so the whole body is outside the XIAO shadow. The rear ~0.2 mm of
+// the pads sits under the XIAO edge.
 const U1_Y = BOARD.yMax - 0.1 - 2.765 // 11.035
 
 // Component placement table. rot = pcbRotation (degrees, CCW).

@@ -220,3 +220,9 @@ Applied 2026-11-06. No copper, pad, via, zone or outline was moved. Copper, mask
 | NIT 11. Gerber zip layout | Won't fix | KiKit's standard JLCPCB package. The README ordering step already says to check the viewer's layer detection. |
 | NIT 12. Stock and moisture | Fixed (docs) / won't fix | README notes about 40 TR1 at JLCPCB and C3171514 (TR3) as the alternate. Moisture floor life needs no action. |
 | NIT 13. Lens tolerance stack | Won't fix | A property of the part and fab tolerances, not a defect. Size the enclosure window for about +0.4 / -0.5 mm. |
+
+## Correction (2026-11-12)
+
+NIT 9 and the VERIFIED-OK line "The back face is at Y 11.27" are wrong. The package back face is on the side away from the lenses, so it is the pad-row centre **minus** 0.235 mm: 11.035 - 0.235 = **10.80**, not 11.27. Against the XIAO's far edge at 10.594, the body sits about **0.2 mm** beyond it, as the original comment said. The rear ~0.2 mm of U1's pads therefore sits under the XIAO edge. The body is still fully outside the XIAO's shadow, so nothing changes in the design. Found in a post-order review; the README and the `index.circuit.tsx` comment now give 0.2 mm.
+
+The built v0.1 boards confirm the fit: the headers supplied with the XIAO measured about 2.55 mm of plastic, and the 1.9 mm TFBS4711 cleared it with room to spare.

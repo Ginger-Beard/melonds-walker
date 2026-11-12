@@ -18,7 +18,7 @@ Schematic: [renders/schematic.png](renders/schematic.png). 3D views: [renders/3d
   - Standard male headers leave a 2.54 mm gap (the header plastic) between the hat and the XIAO. That clears the 0603 parts (0.45 to 0.8 mm tall) under the XIAO's far end.
 - **IR edge.**
   - The TFBS4711-TR1 is side-view. Its lens tips sit 0.1 mm inside the board edge at the end opposite USB-C, with the whole body inside the outline.
-  - The hat runs 3.3 mm past the XIAO's far edge, so the package (back face 0.68 mm beyond the XIAO edge: 11.27 mm against the XIAO's far edge at 10.594 mm from the header centre) is fully outside the XIAO's shadow and nothing is above it.
+  - The hat runs 3.3 mm past the XIAO's far edge, so the package (back face about 0.2 mm beyond the XIAO edge: 10.80 mm against the XIAO's far edge at 10.594 mm from the header centre) is fully outside the XIAO's shadow and nothing is above it. The rear 0.2 mm of U1's pads does sit under the XIAO edge, so inspect U1's joints before soldering the headers.
   - The pads are 2.2 mm from the edge, so copper stays well over 0.3 mm from the edge everywhere; the optical part needed no exception.
 - **Keep-out under the battery pads.** No top copper sits under the XIAO's BAT+/BAT- pads (plus 0.5 mm margin), so a wire soldered there later cannot short anything on the hat. The keep-out runs east to just short of the J1 pads so it leaves no thin sliver of pour.
 - **Routing: everything is explicit, no autorouter.**
@@ -132,7 +132,7 @@ Other footprints:
 ### Heights, for the enclosure (`board.step`)
 
 - Hat PCB 1.6 mm, parts on top only.
-- Header plastic: 2.54 mm, so the XIAO's underside sits **4.14 mm** above the hat's bottom face. Header pins stick out about 3 mm below the hat; trim them flush.
+- Header plastic: 2.54 mm (measured about 2.55 mm on the headers supplied with the XIAO; the 1.9 mm TFBS4711 clears it with room to spare on the v0.1 build), so the XIAO's underside sits **4.14 mm** above the hat's bottom face. Header pins stick out about 3 mm below the hat; trim them flush.
 - TFBS4711: 1.9 mm tall. Lens axis 0.95 mm above the hat's top face (2.55 mm above its bottom face), centred on x = 0. Lens tips at y = 13.8 mm, board edge at 13.9 mm.
 - Enclosure IR window: at least 6 x 2.5 mm, centred on the lens axis. Half-intensity angle is ±24°.
 - `board.step` holds the hat, its SMD parts and both headers. It does not include the XIAO; add Seeed's model on the header plastic at z = 4.14 mm.
