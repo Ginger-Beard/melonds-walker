@@ -68,4 +68,14 @@ No Nintendo code or data is in this repo. The dongle never needs a ROM; you only
 
 ## License
 
-TBD
+melonds-walker: IrDA dongle firmware, host tools and hardware for the Pokéwalker.
+Copyright (C) 2026 Josh Racine
+
+This program is free software: you can redistribute it and/or modify it under
+the terms of the GNU General Public License as published by the Free Software
+Foundation, version 3. It is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY
+or FITNESS FOR A PARTICULAR PURPOSE. The full text is in [LICENSE](LICENSE).
+
+This covers the firmware, tools, documents and the hat design files written
+for this project. Third-party part models under `hardware/` keep their own terms.
