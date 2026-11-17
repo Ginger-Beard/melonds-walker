@@ -27,7 +27,8 @@
 #endif
 
 // ---------------------------------------------------------------------------
-// Polarity. These are BEST GUESSES pending a hardware test.
+// Polarity. The defaults (no inversion anywhere) are confirmed on hardware with
+// a TFBS4711 on the XIAO hat (2026-11-12); other transceivers are untested.
 //
 // The ESP32 IrDA encoder follows the usual SIR ENDEC convention (the same one
 // the STM32 USART uses, and Flipwalker drives a TFBS4711 from an STM32 with no

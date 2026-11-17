@@ -2,7 +2,7 @@
 
 A DIY dongle: an ESP32-S3 board with native USB, wired to a Vishay TFBS4711 IrDA SIR transceiver. The firmware does the SIR encoding and timing and presents a USB CDC serial port (see [protocol.md](protocol.md)). Flashing instructions are in [../firmware/README.md](../firmware/README.md).
 
-Status: tested on hardware with the XIAO hat v0.1 and a TFBS4711 (2026-11-12). The TFDU4101 alternate is untested. Circuit values below are from the Vishay TFBS4711 datasheet ([82633 rev. 3.9](https://www.vishay.com/docs/82633/tfbs4711.pdf)).
+Status: built, tested and in regular use with the XIAO hat v0.1 and a TFBS4711 (first test 2026-11-12, in use with the game as of 2026-11-17). The TFDU4101 alternate is untested. Circuit values below are from the Vishay TFBS4711 datasheet ([82633 rev. 3.9](https://www.vishay.com/docs/82633/tfbs4711.pdf)).
 
 ## Recommended build: the XIAO IrDA hat
 

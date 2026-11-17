@@ -2,7 +2,7 @@
 
 A 17.8 x 24.4 mm, 2-layer carrier for a Seeed Studio XIAO ESP32S3 that holds a Vishay TFBS4711 IrDA SIR transceiver. It is the recommended way to build the melonDS-walker dongle. The XIAO sits on top on two 1x7 headers. The transceiver looks out of the end opposite the XIAO's USB-C connector, so with the dongle plugged into a handheld you aim the Pokéwalker at the far end.
 
-Status: built and tested. Two assembled boards ordered from JLCPCB on 2026-11-07 worked on first power-on with no rework (verified 2026-11-12). The firmware with default settings received the walker's beacon and transmitted correctly, and the board has been used with the melonDS-android fork. Link range and long sessions are not yet tested. Read the [pre-order checklist](#pre-order-checklist-human-checks) before you pay for a reorder.
+Status: built and tested. Two assembled boards ordered from JLCPCB on 2026-11-07 worked on first power-on with no rework (verified 2026-11-12). The firmware with default settings received the walker's beacon and transmitted correctly, and the board is in regular use with the melonDS-android fork and a real Pokéwalker (2026-11-17). Link range has not been measured. Read the [pre-order checklist](#pre-order-checklist-human-checks) before you pay for a reorder.
 
 | Top (XIAO side) | Bottom (outside face) | 3D, factory-assembled |
 |---|---|---|

@@ -86,9 +86,11 @@ USB CDC <-> COBS decode/dispatch -- tx msgbuf (8 pkts) --> pacing -> UART1 IrDA 
 - `lib/cobs`: the COBS codec, shared with the native unit tests.
 - Raw mode is left only on USB unmount or re-enumeration (or reset), not on DTR drop or suspend. See `docs/protocol.md`.
 
-## Hardware-test checklist (unverified assumptions)
+## Hardware-test checklist
+
+The firmware is verified on the XIAO hat with a TFBS4711 and is in regular use with the game (2026-11-17). What each early assumption turned out to be:
 
 - RX/TX polarity defaults (see above): confirmed with a TFBS4711 on the XIAO hat.
-- Toggling `conf0.irda_tx_en` around each transmission: evidently works, since the full handshake and a game registration succeeded.
-- Echo timing (the 50 µs guard plus ~10–20 µs of TX-done wake-up latency must stay under the walker's ~150 µs reply delay): evidently works, same evidence.
+- Toggling `conf0.irda_tx_en` around each transmission: works: the full handshake, a game registration and regular play since.
+- Echo timing (the 50 µs guard plus ~10–20 µs of TX-done wake-up latency must stay under the walker's ~150 µs reply delay): works, same evidence.
 - Behaviour of the reset-to-bootloader path on your particular board: not cleanly exercised. pio's 1200-baud touch plus wait-for-port failed once when the board was already in the ROM bootloader, and running esptool write-flash directly worked.
